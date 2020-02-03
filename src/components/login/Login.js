@@ -5,7 +5,7 @@ class Login extends Component {
   render() {
     return (
         <GoogleLogin
-          clientId="599145801305-tjtd87bh1mk268kdos723437dj1v0ffd.apps.googleusercontent.com" //개인 키 입력
+          clientId="568529977405-s7f89cnkohtph8tru5mhnrp3q7eeeqpd.apps.googleusercontent.com" // admin oauth 인증키.
           buttonText="Login" //로그인 버튼 표시 텍스트
           onSuccess={this.__userEmailValidCheck} // 로그인 성공시 이동할 함수
           onFailure={this.__loginFailAlert} //실패시 이동할 함수
@@ -29,7 +29,8 @@ class Login extends Component {
 
   __setUserInfo = res => {
     //부모컴포넌트한테 유저 정보를 설정해준다 (전달해준다)
-    console.log("login" + res);
+    console.log("login");
+    localStorage.setItem("data",res.toString());
   };
 
   __loginAnotherMail = () => {

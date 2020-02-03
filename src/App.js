@@ -7,6 +7,7 @@ import Login from './components/login/Login';
 
 function App() {
   return (
+    
     <div className="App">
       <div className="logo">
         <img src="./images/text_logo.png" alt="text_logo"/>
