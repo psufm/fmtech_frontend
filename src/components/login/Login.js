@@ -2,15 +2,24 @@ import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
 
 class Login extends Component {
-  state = {
-    logintext: "Login"
-  };
+
+  constructor(props){
+    super(props);
+    this.__getLocalLoginState();
+  }//초기에 확인..
+
+
+  __getLocalLoginState = () => {
+    localStorage.getItem("loginText") == null ? localStorage.setItem("loginText",">>>>>>>로 그 인<<<<<<<<") : console.log("이미있는걸..?");
+  }//이부분..나중에..바꿔줘야함..디비로..
+
+
 
   render =() => {
     return (
         <GoogleLogin
           clientId="568529977405-s7f89cnkohtph8tru5mhnrp3q7eeeqpd.apps.googleusercontent.com" // admin oauth 인증키.
-          buttonText={this.state.logintext} //메일이 있으면? 로그아웃, 없으면? 로그인
+          buttonText={localStorage.getItem("loginText")} //메일이 있으면? 로그아웃, 없으면? 로그인
           onSuccess={this.__getUserLogin} // 로그인 성공시 이동할 함수
           onFailure={this.__loginFailAlert} //실패시 이동할 함수
         />
@@ -31,16 +40,18 @@ class Login extends Component {
 
   __setUserInfo = res => {//상태값 설정.(로그인 로직 저장 부분)
     localStorage.setItem("mail",res.getBasicProfile().getEmail());//로컬에 저장 (DB로 대체하거나 REUDX로 대체할 예정인 부분.)
+    localStorage.setItem("loginText",">>>>>>>로 그 아 웃<<<<<<<<")
     this.setState({
-      logintext : "Logout"
+      logintext : localStorage.getItem("loginText")
     });
   };
 
   __disconnectUser = res => { //상태값 설정. (로그아웃 로직 삭제 부분)
     localStorage.removeItem("mail");//로컬 삭제함 (DB로 대체하거나 REUDX로 대체할 예정인 부분.)
+    localStorage.setItem("loginText",">>>>>>>로 그 인<<<<<<<<")
     res.disconnect();//연결을 끊어, 계정선택창이 새로 나옴.
     this.setState({
-      logintext : "Login"
+      logintext : localStorage.getItem("loginText")
     });
   }
 
