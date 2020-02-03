@@ -126,7 +126,7 @@ function App() {
         <meta property="og:site_name" content="FM Technology 에프엠테크" />
         <meta property="og:title" content="FM Technology 에프엠테크" />
         <meta property="og:url" content="https://fmtech.io" />
-        <meta property="og:image" content="#" />
+        <meta property="og:image" content="./images/text_logo.png" />
         <meta property="og:description" content="FM Technology 에프엠테크" />
         {/*
         트위터
