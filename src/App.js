@@ -4,7 +4,6 @@ import "./css/reset.css";
 import "./css/style.css";
 import Footer from "./components/res/Footer";
 import IntroWord from "./components/res/IntroWord";
-
 import Helmet from "react-helmet";
 
 function App() {
@@ -94,6 +93,9 @@ function App() {
         />
         <link rel="manifest" href="./favicon/manifest.json" />
         <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon" />
+        {/*
+        폰트
+        */}
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
@@ -108,17 +110,28 @@ function App() {
           name="msapplication-TileImage"
           content="./favicon/ms-icon-144x144.png"
         />
+
+        {/*
+        일반
+        */}
         <meta name="theme-color" content="#ffffff" />
         <meta name="robots" content="index,nofollow" />
         <meta name="description" content="FM Technology 에프엠테크" />
         <meta name="keywords" lang="ko" content="웹서비스, 앱서비스" />
         <meta name="format-detection" content="telephone=no" />
+        {/*
+        OG..?
+        */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="FM Technology 에프엠테크" />
         <meta property="og:title" content="FM Technology 에프엠테크" />
         <meta property="og:url" content="https://fmtech.io" />
         <meta property="og:image" content="#" />
         <meta property="og:description" content="FM Technology 에프엠테크" />
+        {/*
+        트위터
+        */}
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="FM Technology 에프엠테크" />
         <meta property="twitter:url" content="https://fmtech.io" />
