@@ -1,37 +1,139 @@
-import React from 'react';
-import './App.css';
-import './css/style.css';
-import Video  from "./components/res/Video";
-import Login from './components/login/Login';
+import React, { Fragment } from "react";
+import "./App.css";
+import "./css/reset.css";
+import "./css/style.css";
+import Footer from "./components/res/Footer";
+import IntroWord from "./components/res/IntroWord";
 
+import Helmet from "react-helmet";
 
 function App() {
   return (
-    
-    <div className="App">
+    <Fragment>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>FM Technology 에프엠테크</title>
+        <link
+          rel="shortcut icon"
+          href="./favicon/favicon.ico"
+          type="image/x-icon"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="57x57"
+          href="./favicon/apple-icon-57x57.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="60x60"
+          href="./favicon/apple-icon-60x60.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="72x72"
+          href="./favicon/apple-icon-72x72.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="76x76"
+          href="./favicon/apple-icon-76x76.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="114x114"
+          href="./favicon/apple-icon-114x114.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="120x120"
+          href="./favicon/apple-icon-120x120.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="144x144"
+          href="./favicon/apple-icon-144x144.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="152x152"
+          href="./favicon/apple-icon-152x152.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="./favicon/apple-icon-180x180.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="./favicon/android-icon-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="./favicon/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="96x96"
+          href="./favicon/favicon-96x96.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="./favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./favicon/manifest.json" />
+        <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900"
+          rel="stylesheet"
+        />
+        <link rel="canonical" href="https://fmtech.io" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+          name="msapplication-TileImage"
+          content="./favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="robots" content="index,nofollow" />
+        <meta name="description" content="FM Technology 에프엠테크" />
+        <meta name="keywords" lang="ko" content="웹서비스, 앱서비스" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FM Technology 에프엠테크" />
+        <meta property="og:title" content="FM Technology 에프엠테크" />
+        <meta property="og:url" content="https://fmtech.io" />
+        <meta property="og:image" content="#" />
+        <meta property="og:description" content="FM Technology 에프엠테크" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="FM Technology 에프엠테크" />
+        <meta property="twitter:url" content="https://fmtech.io" />
+        <meta property="twitter:image" content="#" />
+        <meta
+          property="twitter:description"
+          content="FM Technology 에프엠테크"
+        />
+      </Helmet>
       <div className="logo">
-        <img src="./images/text_logo.png" alt="text_logo"/>
+        <img src="./images/text_logo.png" alt="text_logo" />
       </div>
-      <div className="contents">
-        <Video></Video>
-        
-      <div className ="loginbox"><Login></Login></div>
-        <div className="description">
-          <div className="title"><span>기술</span>을 통한 <span>감동</span>과 <span>공감</span> 발견</div>
-            <div className="text">
-              <p>저희 에프엠 테크는 예술과 기술의 조화를 추구함으로,</p>
-              <p>생각을 더욱 발전시키고 마음을 움직이기 위해 노력하며</p>
-              <p>이를 위한 서비스를 세상에 선보입니다.</p>
-          </div>
-        </div>
-      </div>
-      <footer>
-        <div className="footer_logo">(주)<span>에프엠</span>테크놀로지</div>
-        <div className="address"><span>A.</span> 서울시 서초구 서초대로 46길 25 3F</div>
-        <div className="tel"><span>T.</span> 02 6333 0907</div>
-        <div className="copyright">ⓒ FM TECHNOLOGY All Rights Reserved.</div>
-      </footer>
-    </div>
+      <IntroWord />
+      <Footer />
+    </Fragment>
   );
 }
 
