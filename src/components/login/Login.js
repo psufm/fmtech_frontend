@@ -2,45 +2,55 @@ import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
 
 class Login extends Component {
-  render() {
+  state = {
+    logintext: "Login"
+  };
+
+  render =() => {
     return (
         <GoogleLogin
           clientId="568529977405-s7f89cnkohtph8tru5mhnrp3q7eeeqpd.apps.googleusercontent.com" // admin oauth 인증키.
-          buttonText="Login" //로그인 버튼 표시 텍스트
-          onSuccess={this.__userEmailValidCheck} // 로그인 성공시 이동할 함수
+          buttonText={this.state.logintext} //메일이 있으면? 로그아웃, 없으면? 로그인
+          onSuccess={this.__getUserLogin} // 로그인 성공시 이동할 함수
           onFailure={this.__loginFailAlert} //실패시 이동할 함수
         />
     );
   }
-  __getUserEmail(res) {
-    //정보에서 유저 이메일만 반환해주기
-    const mail = res.profileObj.email;
-    return mail;
+
+  __getUserMailSaveCheck = () =>{//메일값이 있으면 true, 아님 false
+    return localStorage.getItem("mail") == null ? false : true;//메일값이 null이니? 그럼 false ! (false = 메일이 없다.)
+  }//메일이 있다 : true
+
+  __getUserLogin = res => {// 로그인상태면? 연결 끊고, 그게 아니라면 로그인 로직 해주기 !
+    this.__getUserMailSaveCheck() ? this.__disconnectUser(res) : this.__getUserAddressCheck(res);
+  }
+  
+  __getUserAddressCheck = res => {//우리회사의 계정인지..? 이부분 타회사계정으로 체크하는거 필요함.
+    res.getHostedDomain() == "fmtech.io" ? this.__setUserInfo(res) : this.__loginAnotherMail(res);
   }
 
-  __userEmailValidCheck = res => {
-    //유저의 이메일이 유효한 이메일인지 체크한다
-    const user_email = this.__getUserEmail(res); //유저 이메일을 먼저 받아오고..
-    const mailAddress = user_email.split("@"); //골뱅이 기준으로 파싱 해서..
-    mailAddress[1] === "promotion.co.kr" || mailAddress[1] === "fmtech.io" //골뱅이 기준 2번째 배열 값 비교 ( or )
-      ? this.__setUserInfo(res) //맞으면 유저정보 세팅
-      : this.__loginAnotherMail(); //틀리면 알림창
+  __setUserInfo = res => {//상태값 설정.(로그인 로직 저장 부분)
+    localStorage.setItem("mail",res.getBasicProfile().getEmail());//로컬에 저장 (DB로 대체하거나 REUDX로 대체할 예정인 부분.)
+    this.setState({
+      logintext : "Logout"
+    });
   };
 
-  __setUserInfo = res => {
-    //부모컴포넌트한테 유저 정보를 설정해준다 (전달해준다)
-    console.log("login");
-    localStorage.setItem("data",res.toString());
+  __disconnectUser = res => { //상태값 설정. (로그아웃 로직 삭제 부분)
+    localStorage.removeItem("mail");//로컬 삭제함 (DB로 대체하거나 REUDX로 대체할 예정인 부분.)
+    res.disconnect();//연결을 끊어, 계정선택창이 새로 나옴.
+    this.setState({
+      logintext : "Login"
+    });
+  }
+
+  __loginAnotherMail = (res) => {
+    res.disconnect();//연결을 끊어, 계정선택창이 새로 나옴.
+     alert("사내 G-Suite 계정으로만 접속 가능합니다.");
   };
 
-  __loginAnotherMail = () => {
-    return alert("사내 G-Suite 계정으로만 접속 가능합니다.");
-  };
-
-  __loginFailAlert = () => {
-    return alert(
-      "유저정보를 얻어오는데 실패하였습니다. 관리자에게 문의해주세요!"
-    );
+  __loginFailAlert = () => {//취소했을때
+    return console.log("exit");
   };
 }
 
