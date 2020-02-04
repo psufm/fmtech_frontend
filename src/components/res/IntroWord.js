@@ -1,14 +1,14 @@
 import React from "react";
 import Video from "../res/Video";
 import Login from "../login/Login";
+import Logout from "../login/Logout";
 
 function IntroWord() {
   return (
     <div className="contents">
       <Video />
-
       <div className="loginbox">
-        <Login />
+        {sessionStorage.getItem("state") !== "login" ? <Login /> : <Logout />}
       </div>
       <div className="description">
         <div className="title">

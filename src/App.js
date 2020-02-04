@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import "./App.css";
 import "./css/reset.css";
+import "./App.css";
 import Footer from "./components/res/Footer";
 import IntroWord from "./components/res/IntroWord";
 import Helmet from "react-helmet";
