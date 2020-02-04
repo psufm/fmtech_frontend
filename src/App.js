@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import "./App.css";
 import "./css/reset.css";
-import "./css/style.css";
 import Footer from "./components/res/Footer";
 import IntroWord from "./components/res/IntroWord";
 import Helmet from "react-helmet";
@@ -9,6 +8,9 @@ import Helmet from "react-helmet";
 function App() {
   return (
     <Fragment>
+      {
+        //헤드시작
+      }
       <Helmet>
         <meta charset="UTF-8" />
         <meta
@@ -46,6 +48,9 @@ function App() {
         <meta name="keywords" lang="ko" content="웹서비스, 앱서비스" />
         <meta name="format-detection" content="telephone=no" />
       </Helmet>
+      {
+        //헤드종료
+      }
       <div className="logo">
         <img src="./images/text_logo.png" alt="text_logo" />
       </div>
