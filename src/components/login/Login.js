@@ -10,7 +10,7 @@ class Login extends Component {
   __getLocalLoginState = () => {
     this.__getUserMailSaveCheck()
       ? localStorage.setItem("loginText", ">>>>>>>로 그 아 웃<<<<<<<<")
-      : localStorage.setItem("loginText", ">>>>>>>로 그 인<<<<<<<<");
+      : localStorage.setItem("loginText", ">>>>>>>로  그  인<<<<<<<<");
   }; //이부분..나중에..바꿔줘야함..디비로..
 
   render = () => {
@@ -37,7 +37,7 @@ class Login extends Component {
   };
 
   __getUserAddressCheck = res => {
-    //우리회사의 계정인지..? 이부분 타회사계정으로 체크하는거 필요함.
+    //우리회사의 계정인지..?
     res.getHostedDomain() === "fmtech.io"
       ? this.__setUserInfo(res)
       : this.__loginAnotherMail(res);

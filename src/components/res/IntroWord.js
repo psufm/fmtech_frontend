@@ -5,10 +5,10 @@ import Login from "../login/Login";
 function IntroWord() {
   return (
     <div className="contents">
-      <Video></Video>
+      <Video />
 
       <div className="loginbox">
-        <Login></Login>
+        <Login />
       </div>
       <div className="description">
         <div className="title">
