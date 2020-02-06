@@ -5,6 +5,9 @@ import Footer from "./components/res/Footer";
 import IntroWord from "./components/res/IntroWord";
 import Helmet from "react-helmet";
 
+import Video from "./components/res/Video";
+import Login from "./components/login/Login";
+import Logout from "./components/login/Logout";
 function App() {
   return (
     <Fragment>
@@ -54,7 +57,13 @@ function App() {
       <div className="logo">
         <img src="./images/text_logo.png" alt="text_logo" />
       </div>
-      <IntroWord />
+      <div className="contents">
+        <Video />
+        <div className="loginbox">
+          {sessionStorage.getItem("state") !== "login" ? <Login /> : <Logout />}
+        </div>
+        <IntroWord />
+      </div>
       <Footer />
     </Fragment>
   );
