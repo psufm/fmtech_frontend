@@ -9,9 +9,17 @@ class Login extends Component {
         buttonText="Login" //메일이 있으면? 로그아웃, 없으면? 로그인
         onSuccess={this.__getUserAddressCheck} // 로그인 성공시 이동할 함수
         onFailure={this.__loginFailAlert} //실패시 이동할 함수
+        prompt="select_account"
+        cookiePolicy="single_host_origin"
+        onRequest={this.__test}
+        redirectUri="/api"
       />
     );
   };
+
+  __test() {
+    console.log("begin");
+  }
 
   __getUserAddressCheck = res => {
     //우리회사의 계정인지..?
@@ -21,8 +29,16 @@ class Login extends Component {
   };
 
   __setUserInfo = res => {
-    console.log("Login Success");
-    sessionStorage.setItem("state", "login");
+    sessionStorage.setItem("state", "login"); //연결고리
+    //만약, 기존에 있는 정보라면.. 바로 메인페이지로 이동해서 해당 회원 정보를 띄우고
+    //처음 오는 사람일경우, 가입을 시켜야함으로..-> 회원가입 페이지로 이동을 해야함.
+    //res에 들어온 정보 중, token key등의정보를 몽고db에 저장을 해야함.
+    //그 후 메인페이지로 이동한다.
+    this.setState({
+      key: JSON.stringify(res.getAuthResponse())
+    });
+
+    console.log(this.state);
   };
 
   __loginAnotherMail = res => {
