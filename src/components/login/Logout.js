@@ -20,6 +20,10 @@ class Logout extends Component {
     sessionStorage.setItem("state", "logout");
     console.log("Logout Success");
     alert("로그아웃 되셨습니다.");
+
+    const property = this.props.state;
+
+    property();
   };
 }
 

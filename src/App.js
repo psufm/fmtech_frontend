@@ -16,13 +16,21 @@ class App extends Component {
 
   componentDidMount() {}
 
-  render() {
+  render = () => {
     return this.__setDefaultMainView();
-  }
+  };
 
-  __handleTest() {}
+  __handleTest = userdata => {
+    this.setState(userdata);
+  };
 
-  __setDefaultMainView() {
+  __handleStateDelete = () => {
+    this.setState({
+      a: "a"
+    });
+  };
+
+  __setDefaultMainView = () => {
     return (
       <Fragment>
         <Header></Header>
@@ -33,9 +41,9 @@ class App extends Component {
           <Video />
           <div className="loginbox">
             {sessionStorage.getItem("state") !== "login" ? (
-              <Login />
+              <Login state={this.__handleTest} />
             ) : (
-              <Logout />
+              <Logout state={this.__handleStateDelete} />
             )}
           </div>
           <IntroWord />
@@ -43,7 +51,7 @@ class App extends Component {
         <Footer />
       </Fragment>
     );
-  }
+  };
 }
 
 export default App;

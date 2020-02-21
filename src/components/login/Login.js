@@ -38,7 +38,9 @@ class Login extends Component {
       key: JSON.stringify(res.getAuthResponse())
     });
 
-    console.log(this.state);
+    const property = this.props.state;
+
+    property(res);
   };
 
   __loginAnotherMail = res => {

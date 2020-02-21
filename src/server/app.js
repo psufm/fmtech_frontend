@@ -4,7 +4,7 @@ const app = express();
 import router from "./routes/index";
 
 app.use(bodyParser.json());
-app.use("/login", router);
+app.use("/api", router);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
