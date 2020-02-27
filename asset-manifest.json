@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fmtech_frontend/static/css/main.99161ae4.chunk.css",
+    "main.js": "/fmtech_frontend/static/js/main.aeb82b02.chunk.js",
+    "main.js.map": "/fmtech_frontend/static/js/main.aeb82b02.chunk.js.map",
+    "runtime-main.js": "/fmtech_frontend/static/js/runtime-main.0b11b153.js",
+    "runtime-main.js.map": "/fmtech_frontend/static/js/runtime-main.0b11b153.js.map",
+    "static/js/2.63e48de4.chunk.js": "/fmtech_frontend/static/js/2.63e48de4.chunk.js",
+    "static/js/2.63e48de4.chunk.js.map": "/fmtech_frontend/static/js/2.63e48de4.chunk.js.map",
+    "index.html": "/fmtech_frontend/index.html",
+    "precache-manifest.f28c443179fee95f4bb2630943caf0aa.js": "/fmtech_frontend/precache-manifest.f28c443179fee95f4bb2630943caf0aa.js",
+    "service-worker.js": "/fmtech_frontend/service-worker.js",
+    "static/css/main.99161ae4.chunk.css.map": "/fmtech_frontend/static/css/main.99161ae4.chunk.css.map",
+    "static/js/2.63e48de4.chunk.js.LICENSE.txt": "/fmtech_frontend/static/js/2.63e48de4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b11b153.js",
+    "static/js/2.63e48de4.chunk.js",
+    "static/css/main.99161ae4.chunk.css",
+    "static/js/main.aeb82b02.chunk.js"
+  ]
+}
